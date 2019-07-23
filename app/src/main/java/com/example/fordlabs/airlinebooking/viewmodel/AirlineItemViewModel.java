@@ -5,6 +5,27 @@ import android.databinding.Bindable;
 
 public class AirlineItemViewModel extends BaseObservable {
 
+    private String price;
+
+    private String direct;
+
+    @Bindable
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+    @Bindable
+    public String getDirect() {
+        return direct;
+    }
+
+    public void setDirect(String direct) {
+        this.direct = direct;
+    }
+
     private String name;
 
     private String carrierId;

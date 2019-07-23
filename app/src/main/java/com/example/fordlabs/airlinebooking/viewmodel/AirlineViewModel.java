@@ -6,6 +6,7 @@ import android.arch.lifecycle.OnLifecycleEvent;
 import android.databinding.BaseObservable;
 import android.util.Log;
 
+import com.example.fordlabs.airlinebooking.model.Quotes;
 import com.example.fordlabs.airlinebooking.network.ApiClient;
 import com.example.fordlabs.airlinebooking.network.ApiInterface;
 import com.example.fordlabs.airlinebooking.BR;
@@ -92,15 +93,37 @@ public class AirlineViewModel extends BaseObservable implements LifecycleObserve
                 Log.i("***", "onNext: "+value.getCarriers().get(0).toString());
                 Log.i("************", "onNext: "+value.getCarriers().get(0).toString());
 
-                for(Carriers carriers : value.getCarriers()){
+                for(Quotes quotes : value.getQuotes()){
+                    AirlineItemViewModel itemViewModel = new AirlineItemViewModel();
+
+                    itemViewModel.setDirect(quotes.isDirect() == true ? "Direct":"Transit");
+                    itemViewModel.setPrice(quotes.getPrice().toString());
+
+                    for(Integer carrierId : quotes.getOutboundLeg().getCarriersList()){
+                        for(Carriers carriers : value.getCarriers()){
+                            if(carrierId.equals(carriers.getCarrierId())){
+                                itemViewModel.setCarrierId(carriers.getCarrierId().toString());
+                                itemViewModel.setName(carriers.getCarrierName());
+                            }
+                        }
+
+
+                        carriersList.add(itemViewModel);
+
+                    }
+
+                }
+
+                /*for(Carriers carriers : value.getCarriers()){
                     AirlineItemViewModel itemViewModel = new AirlineItemViewModel();
                     itemViewModel.setCarrierId(carriers.getCarrierId().toString());
                     itemViewModel.setName(carriers.getCarrierName());
                     carriersList.add(itemViewModel);
 
-                }
+                }*/
 
                 adapter.setItemViewModels(carriersList);
+                itemSize = carriersList.size();
                 notifyPropertyChanged(BR._all);
                 Log.i("************", "onNext: "+carriersList.get(0).getName());
 
