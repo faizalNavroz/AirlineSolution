@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.view.View;
 
 import com.example.fordlabs.airlinebooking.R;
 import com.example.fordlabs.airlinebooking.adapter.CustomAdapter;
@@ -49,5 +50,21 @@ public class SecondActivity extends AppCompatActivity {
 
         this.getLifecycle().addObserver(viewModel);
 
+    }
+
+    public void sortByPrice(View view){
+        viewModel.getSortedCarriersByPrice();
+    }
+
+    public void sortByDirect(View view){
+        viewModel.getSortedCarriersByDirect();
+    }
+
+    public void getPricesInINR(View view){
+        viewModel.displaypricesInINR();
+    }
+
+    public void getPricesInUSD(View view){
+        viewModel.getUSDPrice();
     }
 }

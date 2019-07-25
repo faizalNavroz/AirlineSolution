@@ -3,13 +3,10 @@ package com.example.fordlabs.airlinebooking.adapter;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.fordlabs.airlinebooking.R;
 import com.example.fordlabs.airlinebooking.databinding.ListItemBinding;
 import com.example.fordlabs.airlinebooking.viewmodel.AirlineItemViewModel;
-import com.example.fordlabs.airlinebooking.viewmodel.AirlineViewModel;
 
 import java.util.ArrayList;
 
