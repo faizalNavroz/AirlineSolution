@@ -16,8 +16,8 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyler"
-            android:layout_width="373dp"
-            android:layout_height="398dp"
+            android:layout_width="351dp"
+            android:layout_height="383dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
@@ -25,21 +25,85 @@
             android:adapter="@{viewModel.adapter}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.928" />
 
         <TextView
             android:id="@+id/list"
             android:layout_width="142dp"
             android:layout_height="28dp"
-            android:layout_marginStart="163dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="163dp"
-            android:layout_marginBottom="22dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="68dp"
             android:text="FLIGHTS LIST"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/recyler"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/sortPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="280dp"
+            android:layout_marginBottom="12dp"
+            android:onClick="sortByPrice"
+            android:text="SORT BY PRICE"
+            app:layout_constraintBottom_toTopOf="@+id/recyler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/sortDirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="158dp"
+            android:layout_marginBottom="12dp"
+            android:onClick="sortByDirect"
+            android:text="SORT BY DIRECT"
+            app:layout_constraintBottom_toTopOf="@+id/recyler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/sortPrice"
+            app:layout_constraintTop_toBottomOf="@+id/list"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/inrPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="13dp"
+            android:onClick="getPricesInINR"
+            android:text="INR PRICE"
+            app:layout_constraintBottom_toTopOf="@+id/recyler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sortDirect"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/usdPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="16dp"
+            android:onClick="getPricesInUSD"
+            android:text="USD PRICE"
+            app:layout_constraintBottom_toTopOf="@+id/inrPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
